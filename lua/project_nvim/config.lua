@@ -41,7 +41,7 @@ M.defaults = {
   exclude_filetype_chdir = {"", "OverseerList"},
 
   -- Don't chdir for specific buftypes
-  exclude_buftype_chdir = {"", "terminal"},
+  exclude_buftype_chdir = {"nofile", "terminal"},
 
   -- Path where project.nvim will store the project history for use in
   -- telescope
