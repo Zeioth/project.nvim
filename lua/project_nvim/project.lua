@@ -238,7 +238,7 @@ function M.on_buf_enter()
 
   -- if buftype is excluded, return
   for _, buftype in pairs(config.options.exclude_buftype_chdir) do
-    if buftype == vim.bo.buftype then return end
+    if vim.bo.buftype ~= "" and buftype == vim.bo.buftype then return end
   end
 
   if vim.v.vim_did_enter == 0 then
@@ -266,7 +266,7 @@ end
 function M.init()
   local autocmds = {}
   if not config.options.manual_mode then
-    autocmds[#autocmds + 1] = 'autocmd VimEnter,BufEnter * ++nested lua require("project_nvim.project").on_buf_enter()'
+    autocmds[#autocmds + 1] = 'autocmd BufReadPost * ++nested lua require("project_nvim.project").on_buf_enter()'
 
     if vim.tbl_contains(config.options.detection_methods, "lsp") then
       M.attach_to_lsp()

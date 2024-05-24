@@ -38,10 +38,10 @@ M.defaults = {
   scope_chdir = 'global',
 
   -- Don't chdir for specific filetypes
-  exclude_filetype_chdir = {"", "OverseerList"},
+  exclude_filetype_chdir = {"", "OverseerList", "alpha"},
 
   -- Don't chdir for specific buftypes
-  exclude_buftype_chdir = {"", "terminal"},
+  exclude_buftype_chdir = {"nofile", "terminal"},
 
   -- Path where project.nvim will store the project history for use in
   -- telescope
