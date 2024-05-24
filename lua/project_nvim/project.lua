@@ -2,7 +2,6 @@ local config = require("project_nvim.config")
 local history = require("project_nvim.utils.history")
 local glob = require("project_nvim.utils.globtopattern")
 local path = require("project_nvim.utils.path")
-local uv = vim.loop
 local M = {}
 
 -- Internal states
@@ -12,8 +11,8 @@ M.last_project = nil
 function M.find_lsp_root()
   -- Get lsp client for current buffer
   -- Returns nil or string
-  local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-  local clients = vim.lsp.buf_get_clients()
+  local buf_ft = vim.bo.filetype
+  local clients = vim.lsp.get_clients()
   if next(clients) == nil then
     return nil
   end
@@ -51,13 +50,13 @@ function M.find_pattern_root()
     last_dir_cache = file_dir
     curr_dir_cache = {}
 
-    local dir = uv.fs_scandir(file_dir)
+    local dir = vim.uv.fs_scandir(file_dir)
     if dir == nil then
       return
     end
 
     while true do
-      local file = uv.fs_scandir_next(dir)
+      local file = vim.uv.fs_scandir_next(dir)
       if file == nil then
         return
       end
