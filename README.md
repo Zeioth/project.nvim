@@ -125,11 +125,11 @@ use {
   -- * win
   scope_chdir = 'global',
 
-  -- Don't chdir for specific filetypes
-  exclude_filetype_chdir = {"", "OverseerList",},
-
-  -- Don't chdir for specific buftypes
-  exclude_buftype_chdir = {"", "terminal"},
+  -- Don't chdir for certain buffers
+  exclude_chdir = {
+    filetype = {"", "OverseerList", "alpha"},
+    buftype = {"nofile", "terminal"},
+  },
 
   -- Path where project.nvim will store the project history for use in
   -- telescope
