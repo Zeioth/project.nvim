@@ -1,3 +1,7 @@
+## Changes over the original project
+* Nvim 0.10 and 0.11 support.
+* Ability to exclude buffers from autocd.
+
 # 🗃️ project.nvim
 
 **project.nvim** is an all in one neovim plugin written in lua that provides
@@ -7,7 +11,7 @@ superior project management.
 
 ## ⚡ Requirements
 
-- Neovim >= 0.5.0
+- Neovim >= 0.10.0
 
 ## ✨ Features
 
@@ -218,3 +222,11 @@ print(vim.inspect(recent_projects))
 
 - All pull requests are welcome.
 - If you encounter bugs please open an issue.
+
+## TODOS
+In the future i'd like to divide this plugin into two plugins:
+
+* autocd.nvim
+* project.nvim 
+
+As that's two different cases of use.
