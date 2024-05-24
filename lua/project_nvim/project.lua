@@ -232,12 +232,12 @@ end
 
 function M.on_buf_enter()
   -- if filetype is excluded, return
-  for _, filetype in pairs(config.options.exclude_filetype_chdir) do
+  for _, filetype in pairs(config.options.exclude_chdir.filetype) do
     if filetype == vim.bo.filetype then return end
   end
 
   -- if buftype is excluded, return
-  for _, buftype in pairs(config.options.exclude_buftype_chdir) do
+  for _, buftype in pairs(config.options.exclude_chdir.buftype) do
     if vim.bo.buftype ~= "" and buftype == vim.bo.buftype then return end
   end
 
