@@ -37,7 +37,7 @@ M.defaults = {
   -- * win
   scope_chdir = 'global',
 
-  -- Don't chdir for specific filetypes
+  -- Don't chdir for certain buffers
   exclude_chdir = {
     filetype = {"", "OverseerList", "alpha"},
     buftype = {"nofile", "terminal"},
