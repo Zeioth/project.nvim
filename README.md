@@ -222,11 +222,3 @@ print(vim.inspect(recent_projects))
 
 - All pull requests are welcome.
 - If you encounter bugs please open an issue.
-
-## TODOS
-In the future i'd like to divide this plugin into two plugins:
-
-* autocd.nvim
-* project.nvim 
-
-As that's two different cases of use.
