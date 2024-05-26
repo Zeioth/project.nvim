@@ -1,3 +1,7 @@
+## Changes over the original project
+* Nvim 0.10 and 0.11 support.
+* Ability to exclude buffers from autocd.
+
 # 🗃️ project.nvim
 
 **project.nvim** is an all in one neovim plugin written in lua that provides
@@ -7,7 +11,7 @@ superior project management.
 
 ## ⚡ Requirements
 
-- Neovim >= 0.5.0
+- Neovim >= 0.10.0
 
 ## ✨ Features
 
@@ -121,11 +125,11 @@ use {
   -- * win
   scope_chdir = 'global',
 
-  -- Don't chdir for specific filetypes
-  exclude_filetype_chdir = {"", "OverseerList",},
-
-  -- Don't chdir for specific buftypes
-  exclude_buftype_chdir = {"", "terminal"},
+  -- Don't chdir for certain buffers
+  exclude_chdir = {
+    filetype = {"", "OverseerList", "alpha"},
+    buftype = {"nofile", "terminal"},
+  },
 
   -- Path where project.nvim will store the project history for use in
   -- telescope
